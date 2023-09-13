@@ -12,7 +12,7 @@ import Resources.CommonMethod;
 import Resources.Constants;
 
 public class LoginTestCase extends BaseClass {
-
+//Added one line for git demo purpose
 	@Test
 
 	public void verifyValidLogin() throws IOException, InterruptedException {
