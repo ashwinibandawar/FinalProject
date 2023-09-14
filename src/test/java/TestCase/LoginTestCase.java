@@ -21,19 +21,20 @@ public class LoginTestCase extends BaseClass {
 
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 
-		Thread.sleep(2000);
+		
 		LoginPageObject lpo = new LoginPageObject(driver);
+		CommonMethod.expwait(driver, lpo.enterUserName(), 10);
 
 		lpo.enterUserName().sendKeys(Constants.username);
 		lpo.enterPassword().sendKeys(Constants.validPassword);
 		lpo.ClickOnLogin().click();
-		Thread.sleep(2000);
+		
 		
 		CommonMethod.HandleSoftAssert(lpo.ActualText().getText(),Constants.ExpectedText );
 
 		
 
-		driver.close();
+		
 	}
 
 	@Test
@@ -42,13 +43,15 @@ public class LoginTestCase extends BaseClass {
 
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 
-		Thread.sleep(2000);
+	
 		LoginPageObject lpo = new LoginPageObject(driver);
+		
 
 		lpo.enterUserName().sendKeys(Constants.invalidusername);
 		lpo.enterPassword().sendKeys(Constants.invalidPAssword);
 		lpo.ClickOnLogin().click();
-		Thread.sleep(2000);
+		CommonMethod.expwait(driver,lpo.ErrorTextMessage() , 10);
+		
 		
 		CommonMethod.HandleSoftAssert(lpo.ErrorTextMessage().getText(), Constants.ExpectedErrorText);
 

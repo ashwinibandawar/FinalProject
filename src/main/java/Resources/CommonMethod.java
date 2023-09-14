@@ -1,10 +1,12 @@
 package Resources;
 
-import java.time.temporal.WeekFields;
+import java.time.Duration;
 import java.util.List;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
 public class CommonMethod {
@@ -31,21 +33,28 @@ public class CommonMethod {
 			}
 		}
 		
-		public static void handleDropdown1(List<WebElement> s, String Text) {
+		/*public static void handleDropdown1(List<WebElement> s, String Text) {
 			
 			
 
 		List<WebElement> obj1 = s;
 		for (WebElement b : obj1) {
+			
 			if (b.getText().equalsIgnoreCase(Text)) {
           b.click();
           break;
 			}
 		
-		}
+		}*/
 	
-		}
+		
 	}
+		
+		public  static void expwait(WebDriver driver,WebElement xpath,int timeout) {
+			WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(timeout));
+			wait.until(ExpectedConditions.elementToBeClickable(xpath));
+		
+	
 }
 	
-
+}
