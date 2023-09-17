@@ -16,7 +16,7 @@ public class LoginPageObject {
 	private By password = By.xpath("//input[@name='password']");
 	private By Login = By.xpath("//button[@type='submit']");
 	private By Actual_Page_Text = By.xpath("//h6[text()='Dashboard']");
-	private By Error_Text_Message = By.xpath("//p[text()='Invalid credentials']");
+	private By Error_Text_Message =By.xpath("//p[@class='oxd-text oxd-text--p oxd-alert-content-text']");
 	
 	
 	public WebElement enterUserName() {

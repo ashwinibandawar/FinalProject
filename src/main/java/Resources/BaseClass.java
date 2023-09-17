@@ -50,10 +50,6 @@ public class BaseClass {
 			
 		}
 		
-		@AfterMethod
-		public void QuiteBrowser() {
-			driver.quit();
-		}
-	
+		
 	}
 

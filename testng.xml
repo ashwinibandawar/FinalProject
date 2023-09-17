@@ -5,7 +5,7 @@
     <classes>
       <class name="TestCase.MyInfoTestCases"/>
       <class name="TestCase.LoginTestCase"/>
-      <class name="framework.Atomationframework.AppTest"/>
+      
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

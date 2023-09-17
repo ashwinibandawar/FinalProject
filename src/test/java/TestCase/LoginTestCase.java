@@ -18,7 +18,7 @@ public class LoginTestCase extends BaseClass {
 	public void VerifyValidLogin() throws InterruptedException {
 		
 		LoginPageObject lpo = new LoginPageObject(driver);
-		
+		Thread.sleep(2000);
 		lpo.enterUserName().sendKeys(Constants.username);
 		Thread.sleep(2000);
 		
@@ -26,7 +26,7 @@ public class LoginTestCase extends BaseClass {
 		Thread.sleep(2000);
 		
 		lpo.ClickOnLogin().click();
-		Thread.sleep(2000);
+		
 		
 		
 		
@@ -34,17 +34,17 @@ public class LoginTestCase extends BaseClass {
 
 	@Test
 	public void verifyInvalidLogin() throws IOException, InterruptedException {
-		InitializeDriver();
+		
 
-		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-
+		
 		LoginPageObject lpo = new LoginPageObject(driver);
-
+		Thread.sleep(2000);
 		lpo.enterUserName().sendKeys(Constants.invalidusername);
+		Thread.sleep(2000);
 		lpo.enterPassword().sendKeys(Constants.invalidPAssword);
+		Thread.sleep(2000);
 		lpo.ClickOnLogin().click();
-		CommonMethod.expwait(driver, lpo.ErrorTextMessage(), 10);
-
+		Thread.sleep(2000);
 		CommonMethod.HandleSoftAssert(lpo.ErrorTextMessage().getText(), Constants.ExpectedErrorText);
 
 		/*
@@ -53,6 +53,6 @@ public class LoginTestCase extends BaseClass {
 		 * driver.findElement(By.xpath("//p[text()='Invalid credentials']")).getText();
 		 * Assert.assertAll();
 		 */
-		driver.close();
+		
 	}
 }
