@@ -8,16 +8,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 public class BaseClass {
 	public WebDriver driver;
+
+	Properties prop;
 
 	public void InitializeDriver() throws IOException {
 
 		FileInputStream fis = new FileInputStream(
 				"C:\\Users\\Jagdish\\eclipse-workspace\\Atomationframework\\src\\main\\java\\Resources\\Data.Properties");
 
-		Properties prop = new Properties();
+	     prop = new Properties();
 
 		prop.load(fis);
 
@@ -35,6 +39,21 @@ public class BaseClass {
 		} else {
 			System.out.println("please choose correct browser");
 		}
-
 	}
-}
+		
+		@BeforeMethod
+		public void LaunchURL() throws IOException {
+			
+			InitializeDriver();
+			driver.get(prop.getProperty("url"));
+			
+			
+		}
+		
+		@AfterMethod
+		public void QuiteBrowser() {
+			driver.quit();
+		}
+	
+	}
+

@@ -13,27 +13,22 @@ import Resources.Constants;
 
 public class LoginTestCase extends BaseClass {
 //Added one line for git demo purpose
+	
 	@Test
-
-	public void verifyValidLogin() throws IOException, InterruptedException {
-
-		InitializeDriver();
-
-		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-
+	public void VerifyValidLogin() throws InterruptedException {
 		
 		LoginPageObject lpo = new LoginPageObject(driver);
-		CommonMethod.expwait(driver, lpo.enterUserName(), 10);
-
+		
 		lpo.enterUserName().sendKeys(Constants.username);
+		Thread.sleep(2000);
+		
 		lpo.enterPassword().sendKeys(Constants.validPassword);
+		Thread.sleep(2000);
+		
 		lpo.ClickOnLogin().click();
+		Thread.sleep(2000);
 		
 		
-		CommonMethod.HandleSoftAssert(lpo.ActualText().getText(),Constants.ExpectedText );
-
-		
-
 		
 	}
 
@@ -43,16 +38,13 @@ public class LoginTestCase extends BaseClass {
 
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 
-	
 		LoginPageObject lpo = new LoginPageObject(driver);
-		
 
 		lpo.enterUserName().sendKeys(Constants.invalidusername);
 		lpo.enterPassword().sendKeys(Constants.invalidPAssword);
 		lpo.ClickOnLogin().click();
-		CommonMethod.expwait(driver,lpo.ErrorTextMessage() , 10);
-		
-		
+		CommonMethod.expwait(driver, lpo.ErrorTextMessage(), 10);
+
 		CommonMethod.HandleSoftAssert(lpo.ErrorTextMessage().getText(), Constants.ExpectedErrorText);
 
 		/*

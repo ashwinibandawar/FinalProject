@@ -6,7 +6,9 @@
       <class name="TestCase.LoginTestCase">
         <methods>
           <include name="verifyInvalidLogin"/>
-          <include name="verifyValidLogin"/>
+          <include name="VerifyValidLogin"/>
+          <include name="QuiteBrowser"/>
+          <include name="LaunchURL"/>
         </methods>
       </class> <!-- TestCase.LoginTestCase -->
     </classes>
